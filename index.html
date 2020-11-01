@@ -15,6 +15,79 @@
 
     <!-- FORMULAIRE DE RESERVATION -->
     <!-- au cas ou t'aurais pas compris place ton fromulaire ici. A+ Manfred -->
+    <form action="http://fallinov.com/getpost/" method="post">
+        <ul>
+            <li>
+                <label for="lis_hotel">Hôtel</label>
+                <select name="lis_hotel" id="lis_hotel">
+                    <option value="0" selected>-- Sélectionnez un hotel --</option>
+                    <option value="City">Hôtel City</option>
+                    <option value="National">Hôtel National</option>
+                    <option value="Midi">Hôtel Le Midi</option>
+                    <option value="Victoria">Hôtel Victoria</option>
+                </select>
+            </li>
+            <li>
+                <label for="txt_nbrChambre" >Nombre de chambres :</label>
+                <input type="text" name="txt_nbrChambre" id="txt_nbrChambre" maxlength="2" />
+            </li>
+            <li>
+                <fieldset>
+                    <legend>Type de chambre</legend>
+                    <div>
+                        <input type="radio" name="opt_type_chambre" id="sim1" value="standard simple"/>
+                        <label for="sim1">Standard simple</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="opt_type_chambre" id="sim2" value="standard double"/>
+                        <label for="sim2">Standard double</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="opt_type_chambre" id="sup1" value="supérieure simple"/>
+                        <label for="sup1">Supérieure simple</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="opt_type_chambre" id="sup2" value="supérieure double"/>
+                        <label for="sup2">Supérieure double</label>
+                    </div>
+                </fieldset>
+            </li>
+            <li>
+                <fieldset>
+                    <legend>Options disponibles</legend>
+                    <div>
+                        <input type="checkbox" name="chk_options[]" id="dejeuner" value="Petit déjeuner"/>
+                        <label for="dejeuner">Petit déjeuner</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="chk_options[]" id="tv" value="TV"/>
+                        <label for="tv">TV</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="chk_options[]" id="journaux" value="Journaux"/>
+                        <label for="journaux">Journaux</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="chk_options[]" id="ordi" value="Ordinateur"/>
+                        <label for="ordi">Ordinateur</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="chk_options[]" id="wifi" value="Accès Wifi"/>
+                        <label for="wifi">Accès Wifi</label>
+                     </div>
+                     <div>
+                        <input type="checkbox" name="chk_options[]" id="animaux" value="Animaux de compagnie"/>
+                        <label for="animaux">Animaux de compagnie</label>
+                    </div>
+                </fieldset>
+            </li>
+            <li>
+                <input type="reset" name="bt_reset"/>
+                <input type="submit" name="bt_envoyer" value="Réserver"/>
+            </li>
+        </ul>
+    </form>
+
 </div>
 
 <!-- RESERVATION -->
