@@ -6,11 +6,6 @@
  * http://usejsdoc.org/
  */
 
-//http://www.jslint.com/help.html
-/*jslint this:true */
-/*jslint es6, browser, devel, for, single, multivar*/
-/*global window, document, alert, performance */
-
 (function (document) {
     "use strict";
 
@@ -19,13 +14,25 @@
     const divMessage = document.getElementById("message"); // div pour message d'erreurs
     const divReservation = document.getElementById("reservation"); // div pour confirmation de réservation
 
+    /* Elements du formulaire */
+    const lisHotel = document.getElementById("lis_hotel");
+    const txtNbChambre = document.getElementById("txt_nbrChambre");
+
+    /* Elements de la confirmation*/
+    const imgPhotoHotel = document.getElementById("photo");
+    const h2NomHotel = divReservation.querySelector("h2");
+    const spanChambreNombre = document.getElementById("chambre_nombre");
+    const spanChambreType =  document.getElementById("chambre_type");
+    const ulOptions = document.getElementById("options");
+
+
     /**
      * Retourne le nom de l'hotel sélectionné par le visiteur
      *
      * @returns {String} Nom de l'hotêl ou "0" si pas de sélection
      */
     function getHotel() {
-        return document.getElementById("lis_hotel").value;
+        return lisHotel.value;
     }
 
     /**
@@ -34,7 +41,7 @@
      * @returns {Number} Nombre de chambres ou NaN (Not A Number)
      */
     function getNbChambre() {
-        return parseInt(document.getElementById("txt_nbrChambre").value);
+        return parseInt(txtNbChambre.value);
     }
 
     /**
@@ -44,7 +51,7 @@
      */
 
     function getChambre() {
-        let chambre = document.querySelector('[name="opt_type_chambre"]:checked');
+        const chambre = forReservation.querySelector('[name="opt_type_chambre"]:checked');
 
         if (chambre === null) {
             return "";
@@ -59,7 +66,7 @@
      * @returns {NodeList} tableau des checkbox cochées
      */
     function getOptions() {
-        return document.querySelectorAll('[name="chk_options[]"]:checked');
+        return forReservation.querySelectorAll('[name="chk_options[]"]:checked');
     }
 
     /**
@@ -98,20 +105,18 @@
     function afficheConfirmation() {
 
         // Photo hôtel
-        document.getElementById("photo").src = "images/"
+        imgPhotoHotel.src = "images/"
             + getHotel().toLowerCase()
             + ".jpg";
 
         // Nom de l'hôtel
-        divReservation.querySelector("h2").innerText = getHotel();
+        h2NomHotel.innerText = getHotel();
 
         // Chambre
-        document.getElementById("chambre_nombre").innerText = getNbChambre().toString();
-        document.getElementById("chambre_type").innerText = getChambre();
+        spanChambreNombre.innerText = getNbChambre().toString();
+        spanChambreType.innerText = getChambre();
 
         // Liste des options
-        const ulOptions = document.getElementById("options");
-
         ulOptions.innerHTML = ""; // Vide la liste
 
         for (let option of getOptions()) {
