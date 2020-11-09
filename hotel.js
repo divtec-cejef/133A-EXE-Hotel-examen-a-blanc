@@ -17,6 +17,7 @@
     /* Elements du formulaire */
     const lisHotel = document.getElementById("lis_hotel");
     const txtNbChambre = document.getElementById("txt_nbrChambre");
+    console.log(lisHotel, txtNbChambre);
 
     /* Elements de la confirmation*/
     const imgPhotoHotel = document.getElementById("photo");
@@ -113,7 +114,7 @@
         h2NomHotel.innerText = getHotel();
 
         // Chambre
-        spanChambreNombre.innerText = getNbChambre().toString();
+        spanChambreNombre.innerText = getNbChambre().toString();    
         spanChambreType.innerText = getChambre();
 
         // Liste des options
